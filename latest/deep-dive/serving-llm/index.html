@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://microsoft.github.io/agent-lightning/latest/">
+        <link rel="canonical" href="https://microsoft.github.io/agent-lightning/latest/deep-dive/serving-llm/">
       
       
+        <link rel="prev" href="../store/">
       
-        <link rel="next" href="tutorials/installation/">
+      
+        <link rel="next" href="../../reference/agent/">
       
       
-      <link rel="icon" href="assets/favicon.svg">
+      <link rel="icon" href="../../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>Agent Lightning</title>
+        <title>Serving LLM - Agent Lightning</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,15 +48,15 @@
       
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="css/timeago.css">
+      <link rel="stylesheet" href="../../css/timeago.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#agent-lightning" class="md-skip">
+        <a href="#serving-llms-under-agent-lightning" class="md-skip">
           Skip to content
         </a>
       
@@ -100,9 +102,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Agent Lightning" class="md-header__button md-logo" aria-label="Agent Lightning" data-md-component="logo">
+    <a href="../.." title="Agent Lightning" class="md-header__button md-logo" aria-label="Agent Lightning" data-md-component="logo">
       
-  <img src="assets/favicon-white.svg" alt="logo">
+  <img src="../../assets/favicon-white.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -119,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Serving LLM
             
           </span>
         </div>
@@ -237,9 +239,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Agent Lightning" class="md-nav__button md-logo" aria-label="Agent Lightning" data-md-component="logo">
+    <a href="../.." title="Agent Lightning" class="md-nav__button md-logo" aria-label="Agent Lightning" data-md-component="logo">
       
-  <img src="assets/favicon-white.svg" alt="logo">
+  <img src="../../assets/favicon-white.svg" alt="logo">
 
     </a>
     Agent Lightning
@@ -263,32 +265,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -299,80 +279,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-read-this-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to Read this Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community-projects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Community Projects
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Citation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      License
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -429,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/installation/" class="md-nav__link">
+      <a href="../../tutorials/installation/" class="md-nav__link">
         
   
   
@@ -452,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/train-first-agent/" class="md-nav__link">
+      <a href="../../how-to/train-first-agent/" class="md-nav__link">
         
   
   
@@ -475,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/write-first-algorithm/" class="md-nav__link">
+      <a href="../../how-to/write-first-algorithm/" class="md-nav__link">
         
   
   
@@ -550,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/unsloth-sft/" class="md-nav__link">
+      <a href="../../how-to/unsloth-sft/" class="md-nav__link">
         
   
   
@@ -573,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="how-to/train-sql-agent/" class="md-nav__link">
+      <a href="../../how-to/train-sql-agent/" class="md-nav__link">
         
   
   
@@ -648,7 +554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/write-agents/" class="md-nav__link">
+      <a href="../../tutorials/write-agents/" class="md-nav__link">
         
   
   
@@ -671,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/debug/" class="md-nav__link">
+      <a href="../../tutorials/debug/" class="md-nav__link">
         
   
   
@@ -694,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/traces/" class="md-nav__link">
+      <a href="../../tutorials/traces/" class="md-nav__link">
         
   
   
@@ -717,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorials/parallelize/" class="md-nav__link">
+      <a href="../../tutorials/parallelize/" class="md-nav__link">
         
   
   
@@ -792,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="algorithm-zoo/" class="md-nav__link">
+      <a href="../../algorithm-zoo/" class="md-nav__link">
         
   
   
@@ -815,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="algorithm-zoo/apo/" class="md-nav__link">
+      <a href="../../algorithm-zoo/apo/" class="md-nav__link">
         
   
   
@@ -838,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="algorithm-zoo/verl/" class="md-nav__link">
+      <a href="../../algorithm-zoo/verl/" class="md-nav__link">
         
   
   
@@ -865,8 +771,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -877,13 +785,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -899,7 +805,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Deep Dive
@@ -913,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deep-dive/birds-eye-view/" class="md-nav__link">
+      <a href="../birds-eye-view/" class="md-nav__link">
         
   
   
@@ -936,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deep-dive/store/" class="md-nav__link">
+      <a href="../store/" class="md-nav__link">
         
   
   
@@ -956,10 +862,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="deep-dive/serving-llm/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Serving LLM
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -970,6 +898,71 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-background-on-llm-serving" class="md-nav__link">
+    <span class="md-ellipsis">
+      General background on LLM serving
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-agent-lightning-expects-from-a-served-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Agent-lightning expects from a served LLM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launching-a-serving-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launching a serving framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llm-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      LLM Proxy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-ids-and-why-they-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token IDs and why they matter
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1034,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/agent/" class="md-nav__link">
+      <a href="../../reference/agent/" class="md-nav__link">
         
   
   
@@ -1057,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/algorithm/" class="md-nav__link">
+      <a href="../../reference/algorithm/" class="md-nav__link">
         
   
   
@@ -1080,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/cli/" class="md-nav__link">
+      <a href="../../reference/cli/" class="md-nav__link">
         
   
   
@@ -1103,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/instrumentation/" class="md-nav__link">
+      <a href="../../reference/instrumentation/" class="md-nav__link">
         
   
   
@@ -1126,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/runner/" class="md-nav__link">
+      <a href="../../reference/runner/" class="md-nav__link">
         
   
   
@@ -1149,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/store/" class="md-nav__link">
+      <a href="../../reference/store/" class="md-nav__link">
         
   
   
@@ -1172,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/trainer/" class="md-nav__link">
+      <a href="../../reference/trainer/" class="md-nav__link">
         
   
   
@@ -1195,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/types/" class="md-nav__link">
+      <a href="../../reference/types/" class="md-nav__link">
         
   
   
@@ -1218,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/internal/" class="md-nav__link">
+      <a href="../../reference/internal/" class="md-nav__link">
         
   
   
@@ -1268,54 +1261,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#general-background-on-llm-serving" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+      General background on LLM serving
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-read-this-documentation" class="md-nav__link">
+  <a href="#what-agent-lightning-expects-from-a-served-llm" class="md-nav__link">
     <span class="md-ellipsis">
-      How to Read this Documentation
+      What Agent-lightning expects from a served LLM
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#launching-a-serving-framework" class="md-nav__link">
     <span class="md-ellipsis">
-      Resources
+      Launching a serving framework
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#community-projects" class="md-nav__link">
+  <a href="#llm-proxy" class="md-nav__link">
     <span class="md-ellipsis">
-      Community Projects
+      LLM Proxy
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
+  <a href="#token-ids-and-why-they-matter" class="md-nav__link">
     <span class="md-ellipsis">
-      Citation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      License
+      Token IDs and why they matter
     </span>
   </a>
   
@@ -1379,7 +1363,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 20, 2025 11:36:00 UTC"><span class="timeago" datetime="2025-10-20T11:36:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 20, 2025 11:36:00 UTC">2025-10-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 19, 2025 15:08:10 UTC"><span class="timeago" datetime="2025-10-19T15:08:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 19, 2025 15:08:10 UTC">2025-10-19</span>
   </span>
 
     
@@ -1389,7 +1373,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 10, 2025 06:44:00 UTC"><span class="timeago" datetime="2025-08-10T06:44:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 10, 2025 06:44:00 UTC">2025-08-10</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="October 17, 2025 18:24:27 UTC"><span class="timeago" datetime="2025-10-17T18:24:27+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="October 17, 2025 18:24:27 UTC">2025-10-17</span>
   </span>
 
     
@@ -1414,52 +1398,115 @@
 
 
 <!-- Page content -->
-<h1 id="agent-lightning">Agent Lightning<a class="headerlink" href="#agent-lightning" title="Permanent link">&para;</a></h1>
-<p>Agent Lightning is the absolute trainer to light up AI agents.</p>
-<p><a href="https://discord.gg/RYk7CdvDR7">Join our Discord community</a> to connect with other users and contributors.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h1 id="serving-llms-under-agent-lightning">Serving LLMs under Agent-lightning<a class="headerlink" href="#serving-llms-under-agent-lightning" title="Permanent link">&para;</a></h1>
+<p>Agent-lightning focuses on data, learning signals, and control flow — <strong>not</strong> on running model inference. This deep dive explains how to <strong>serve</strong> a model alongside Agent-lightning so runners can call it reliably, how the <strong>LLM Proxy</strong> fits into the loop, and why <strong>token IDs</strong> matter if you care about correctness in training and evaluation.</p>
+<h2 id="general-background-on-llm-serving">General background on LLM serving<a class="headerlink" href="#general-background-on-llm-serving" title="Permanent link">&para;</a></h2>
+<p><a href="" id="general-llm-serving-background"></a></p>
+<p>Serving a model is essential if you want to train it, especially when you use the model’s own generations as training data. We’ll briefly review the general background to ensure all readers are aligned.</p>
+<p>Modern LLM servers solve a difficult scheduling problem: keeping GPUs fully utilized while handling prompts of different lengths, streaming tokens as they arrive, and fitting large KV caches into limited memory. Techniques like <a href="https://www.anyscale.com/blog/continuous-batching-llm-inference"><strong>continuous batching</strong></a> and <a href="https://arxiv.org/abs/2309.06180"><strong>paged attention</strong></a> address these challenges. Continuous batching interleaves decoding across requests to reuse weights efficiently; with careful memory planning, it achieves major throughput gains without increasing latency. PagedAttention reduces KV-cache fragmentation so batching remains effective as sequences grow. See <a href="https://arxiv.org/abs/2309.06180">vLLM’s PagedAttention paper</a> and <a href="https://www.baseten.co/blog/continuous-vs-dynamic-batching-for-ai-inference/">industry analyses</a> for details. Balancing inference correctness and efficiency is difficult — a <a href="https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/">recent blog</a> from Thinking Machines Labs highlights how inference nondeterminism ultimately affects training.</p>
+<p>Beyond scheduling, servers expose an HTTP API, often <strong>OpenAI-compatible</strong> (<code>/v1/chat/completions</code> and <code>/v1/responses</code>), which is itself a complex stack. In addition to text prompts and chat messages, the API defines many parameters and response fields such as <a href="https://platform.openai.com/docs/guides/function-calling">tool calls</a>, <a href="https://platform.openai.com/docs/guides/structured-outputs">structured output</a>, and <a href="https://platform.openai.com/docs/guides/images-vision">multimodal support</a>. Much effort has been put into implementing all these parameters for many frameworks. Popular engines like <strong>vLLM</strong> and <a href="https://github.com/sgl-project/sglang"><strong>SGLang</strong></a> ship with OpenAI-compatible frontends so you can reuse existing client code. <a href="https://ollama.com/blog/openai-compatibility">Ollama</a> and <a href="https://llama-cpp-python.readthedocs.io/en/latest/server/">llama.cpp</a> provide similar capabilities. However, because models differ internally, each framework interprets and implements the API slightly differently. Even with identical requests, the tokens passed to the model can vary substantially across frameworks.</p>
+<h2 id="what-agent-lightning-expects-from-a-served-llm">What Agent-lightning expects from a served LLM<a class="headerlink" href="#what-agent-lightning-expects-from-a-served-llm" title="Permanent link">&para;</a></h2>
+<p>Most of the issues above either have workarounds or remain open research problems. Keep them in mind, but the key question is: what does Agent-lightning expect from a served LLM? The answer includes at least two things:</p>
 <ul>
-<li>Turn your agent into an optimizable beast with <strong>ZERO CODE CHANGE</strong> (almost)! 💤</li>
-<li>Build with <strong>ANY</strong> agent framework (LangChain, OpenAI Agent SDK, AutoGen, CrewAI, Microsoft Agent Framework...); or even WITHOUT agent framework (Python OpenAI). You name it! 🤖</li>
-<li><strong>Selectively</strong> optimize one or more agents in a multi-agent system. 🎯</li>
-<li>Embraces <strong>Algorithms</strong> like Reinforcement Learning, Automatic Prompt Optimization, Supervised Fine-tuning and more. 🤗</li>
+<li>An OpenAI-compatible <strong>Chat Completions</strong> or <strong>Responses</strong> endpoint the agent can call during rollouts.</li>
+<li>Optional training and debugging signals: <strong>logprobs</strong>, <strong>usage</strong>, and ideally <strong>token IDs</strong>. (OpenAI’s public API exposes usage and logprobs, but <strong>not</strong> token IDs — more on <a class="autorefs autorefs-internal" title="Token IDs and why they matter" href="#token-ids-matter">why IDs matter</a> later.)</li>
 </ul>
-<h2 id="how-to-read-this-documentation">How to Read this Documentation<a class="headerlink" href="#how-to-read-this-documentation" title="Permanent link">&para;</a></h2>
-<p>This documentation is organized into the following parts:</p>
-<ul>
-<li><a href="tutorials/installation/">Installation</a> - Get started with Agent Lightning</li>
-<li>How-to Recipes (e.g., <a href="how-to/train-sql-agent/">Train SQL Agent with RL</a>) - Practical examples of training agents and customizing algorithms.</li>
-<li>Learning More (e.g., <a href="tutorials/debug/">Debugging</a>) - Guides on specific topics like debugging or parallelization.</li>
-<li>Algorithm Zoo (e.g., <a href="algorithm-zoo/apo/">APO</a>) - References for built-in algorithms.</li>
-<li>Deep Dive (e.g., <a href="deep-dive/birds-eye-view/">Bird's Eye View</a>) - For a deeper understanding of what Agent-lightning is doing under the hood.</li>
-<li>API References (e.g., <a href="reference/agent/">Agent</a>) - References for the Agent-lightning Python API.</li>
-</ul>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li>8/11/2025 <a href="https://medium.com/@yugez/training-ai-agents-to-write-and-self-correct-sql-with-reinforcement-learning-571ed31281ad">Training AI Agents to Write and Self-correct SQL with Reinforcement Learning</a> Medium.</li>
-<li>8/5/2025 <a href="https://arxiv.org/abs/2508.03680">Agent Lightning: Train ANY AI Agents with Reinforcement Learning</a> arXiv paper.</li>
-<li>7/26/2025 <a href="https://www.reddit.com/r/LocalLLaMA/comments/1m9m670/we_discovered_an_approach_to_train_any_ai_agent/">We discovered an approach to train any AI agent with RL, with (almost) zero code changes.</a> Reddit.</li>
-<li>6/6/2025 <a href="https://www.microsoft.com/en-us/research/project/agent-lightning/">Agent Lightning - Microsoft Research</a> Project page.</li>
-</ul>
-<h2 id="community-projects">Community Projects<a class="headerlink" href="#community-projects" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/af-74413592/DeepWerewolf">DeepWerewolf</a> — A case study of agent RL training for the Chinese Werewolf game built with AgentScope and Agent Lightning.</li>
-<li><a href="https://agentflow.stanford.edu/">AgentFlow</a> — A modular multi-agent framework that combines planner, executor, verifier, and generator agents with the Flow-GRPO algorithm to tackle long-horizon, sparse-reward tasks.</li>
-</ul>
-<h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
-<p>If you find Agent Lightning useful in your research or projects, please cite our paper:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">luo2025agentlightningtrainai</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{Agent Lightning: Train ANY AI Agents with Reinforcement Learning}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Xufang Luo and Yuge Zhang and Zhiyuan He and Zilong Wang and Siyun Zhao and Dongsheng Li and Luna K. Qiu and Yuqing Yang}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2508.03680}</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.AI}</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="na">url</span><span class="p">=</span><span class="s">{https://arxiv.org/abs/2508.03680}</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
-</code></pre></div>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>See the <a href="https://github.com/microsoft/agent-lightning/blob/main/LICENSE">LICENSE</a> file for details.</p>
+<h2 id="launching-a-serving-framework">Launching a serving framework<a class="headerlink" href="#launching-a-serving-framework" title="Permanent link">&para;</a></h2>
+<p>For many algorithms, you’ll start an engine (e.g., <strong>vLLM</strong> or <strong>SGLang</strong>) before rollouts, then shut it down afterward to free GPU memory. Most frameworks provide a one-line “serve” command to launch the OpenAI-compatible server. You can use those to bring up <code>/v1/chat/completions</code> with your checkpoint, ensuring streaming and any required tool-calling features are enabled. A working example is shown in <a href="../../how-to/unsloth-sft/">Unsloth SFT</a>.</p>
+<p>Weight updates — which occur after each training step — are trickier. Some frameworks like <a href="https://vllm.ai/">vLLM</a> support hot-updating model weights, but it’s usually simpler and more reliable to restart the engine to load new weights. For medium-sized tasks (hundreds of rollouts taking 10+ minutes), the restart overhead (under 30 seconds) is typically negligible.</p>
+<p>If you’re using Agent-lightning’s <a class="autorefs autorefs-internal" title="            VERL" href="../../algorithm-zoo/verl/#agentlightning.algorithm.verl.VERL"><strong>VERL</strong></a> integration, the algorithm can <strong>manage the server automatically</strong>. The <a href="https://github.com/volcengine/verl">VERL framework</a> intelligently allocates compute resources and wraps vLLM/SGLang behind an <code>AsyncLLMServer</code> abstraction. You can directly use this as the LLM endpoint for agents. Since VERL can spawn multiple vLLM replicas, using <a class="autorefs autorefs-internal" title="            agentlightning.LLMProxy" href="../../reference/algorithm/#agentlightning.LLMProxy"><code>LLMProxy</code></a> to manage them adds an additional safety layer.</p>
+<p>A full sequence diagram of how <a class="autorefs autorefs-internal" title="            VERL" href="../../algorithm-zoo/verl/#agentlightning.algorithm.verl.VERL">VERL</a> interacts with the LLM server and proxy is available <a class="autorefs autorefs-internal" title="Putting It All Together: A Reinforcement Learning Example (VERL)" href="../birds-eye-view/#birds-eye-view-verl-example">here</a>.</p>
+<h2 id="llm-proxy">LLM Proxy<a class="headerlink" href="#llm-proxy" title="Permanent link">&para;</a></h2>
+<p>The <strong>LLM Proxy</strong> is a utility class in Agent-lightning, built on <a href="https://docs.litellm.ai/">LiteLLM</a>, that sits between runners and your backend engine(s) or server(s). In Agent-lightning it acts as a single URL registered as a <a class="autorefs autorefs-internal" title="            agentlightning.Resource" href="../../reference/types/#agentlightning.Resource"><code>Resource</code></a> in the store, offering three key benefits:</p>
+<ol>
+<li><strong>Unified endpoint &amp; hot-swaps.</strong> You can redirect traffic between OpenAI, Anthropic, local vLLM/SGLang, or canary checkpoints without modifying agent code — simply repoint the proxy.</li>
+<li><strong>First-class tracing.</strong> The proxy emits <strong>OpenTelemetry</strong> spans for every call and sends them to the <a class="autorefs autorefs-internal" title="            agentlightning.LightningStore" href="../../reference/store/#agentlightning.LightningStore"><code>LightningStore</code></a>. It includes rollout and attempt identifiers in request headers so spans are correctly attributed. Sequence numbers are allocated monotonically via the store to <a class="autorefs autorefs-internal" title="LLM Proxy" href="../../tutorials/traces/#distributed-tracing">prevent clock-skew issues</a> and allow reliable reconstruction of execution trees.</li>
+<li><strong>Token IDs.</strong> The proxy can return prompt and response token IDs along with the model output. More details are available in the <a class="autorefs autorefs-internal" title="Token IDs and why they matter" href="#token-ids-matter">next section</a>.</li>
+</ol>
+<p>Operationally, running the proxy alongside the algorithm works best: the algorithm registers the backend (e.g., the vLLM URL) via <a class="autorefs autorefs-internal" title="            update_model_list(model_list)" href="../../reference/algorithm/#agentlightning.LLMProxy.update_model_list"><code>LLMProxy.update_model_list</code></a>, publishes the proxy URL as a resource via <a class="autorefs autorefs-internal" title="            add_resources(resources)
+
+  
+      async
+  " href="../../reference/store/#agentlightning.LightningStore.add_resources"><code>LightningStore.add_resources</code></a>, and runners simply use that URL during rollouts. This mirrors many production client–server setups.</p>
+<h2 id="token-ids-and-why-they-matter">Token IDs and why they matter<a class="headerlink" href="#token-ids-and-why-they-matter" title="Permanent link">&para;</a></h2>
+<p><a href="" id="token-ids-matter"></a></p>
+<p>This section explains how Agent-lightning handles and uses token IDs — a subtle but important detail for training stability and accuracy.</p>
+<p>Most agents interact with LLMs via <strong>Chat Completion APIs</strong>, exchanging chat messages. There are two main approaches to collecting training data from such agents.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tokenization here refers to the process of converting <strong>Chat Messages</strong> into <strong>Token IDs</strong>. Detokenization is the reverse process of converting <strong>Token IDs</strong> back to <strong>Chat Messages</strong>. Normally, the tokenizer is published along with the pretrained model, which includes a vocabulary, special tokens, and a chat template to dealing with chat messages.</p>
+</div>
+<p><strong>1. Retokenizing chat messages.</strong>
+In this approach, you store chat messages as text and let training algorithms <strong>retokenize</strong> them later, as done in many SFT workflows (e.g., <a href="https://huggingface.co/docs/trl/sft_trainer">HuggingFace SFT</a>).
+In practice, we’ve found this method unstable and less accurate. The chart below compares training results. The retokenization approach is run twice. All settings are the same except for the retokenization approach.</p>
+<div style="height:400px">
+<canvas data-chart='{
+  "type": "line",
+  "data": {
+    "labels": [0.0, 32.0, 64.0, 96.0, 128.0, 160.0, 192.0, 224.0, 256.0, 288.0, 320.0, 352.0, 384.0, 416.0, 448.0, 480.0],
+    "datasets": [
+      {
+        "label": "With Token IDs from Retokenization",
+        "data": [0.49, 0.512, 0.54, 0.532, 0.54, 0.466, 0.328, 0.358, 0.348, 0.35, 0.346, 0.372, 0.346, 0.33, 0.346, 0.332],
+        "spanGaps": true
+      },
+      {
+        "label": "Retokenization (Second Run)",
+        "data": [0.494, 0.526, 0.536, 0.554, 0.544, 0.556, 0.568, 0.552, 0.45, 0.466, 0.474, 0.47, 0.464, 0.476, 0.488, 0.432],
+        "spanGaps": true
+      },
+      {
+        "label": "With Token IDs from Engine",
+        "data": [0.494, 0.522, 0.514, 0.538, 0.53, 0.564, 0.564, 0.586, 0.594, 0.604, 0.618, 0.584, 0.606, 0.558, 0.612, 0.588],
+        "spanGaps": true
+      }
+    ]
+  },
+  "options": {
+    "interaction": {
+      "mode": "nearest",
+      "intersect": false
+    },
+    "plugins": {
+      "legend": {
+        "display": true,
+        "position": "top"
+      },
+      "title": {
+        "display": true,
+        "text": "Agent Training Results Comparison"
+      }
+    },
+    "scales": {
+      "x": {
+        "title": {
+          "display": true,
+          "text": "Step"
+        }
+      },
+      "y": {
+        "title": {
+          "display": true,
+          "text": "Reward"
+        }
+      }
+    }
+  }
+}'></canvas>
+</div>
+
+<p>This instability has three causes. Firstly, chat template used in different frameworks could be slightly different. For example, one single LLaMA model can work with multiple chat templates (multiple in <a href="https://github.com/vllm-project/vllm/tree/1d165d6d859d3c50720f0c07209db2363c4fd33b/examples">vLLM</a> and one in <a href="https://huggingface.co/meta-llama">HuggingFace</a>). It's possible that the chat template used in detokenization is different from the one used in tokenization (this is actually an implementation bug).</p>
+<p>Secondly, a word might be generated as two tokens (e.g., <code>H + AVING</code>) but later retokenized as <code>HAV + ING</code>. The text looks identical, but the token IDs differ from what the model originally produced.</p>
+<p>Thirdly, a generated tool call text like <code>&lt;tool_call&gt;{ "name": ... }&lt;/tool_call&gt;</code> is parsed by tool call parser into an object that is required by chat completion API. Later, the object is rendered back to <code>&lt;tool_call&gt;{ "name": ... }&lt;/tool_call&gt;</code> and retokenized again, tool call parsing and re-rendering might cause changes in whitespace and formatting. In some situations, JSON errors may even be auto-corrected by the tool call parser — masking the model’s true generation errors and preventing them from being trained away.</p>
+<hr />
+<p><strong>2. Saving token IDs directly.</strong>
+The alternative is to save the token IDs generated by the model, as done in RL setups like <a href="https://thinkingmachines.ai/tinker/">Tinker</a>. This requires a training pipeline that treats tokens as first-class entities, meaning agents must communicate with the inference engine at the token level.</p>
+<p>However, most agents — especially those built with frameworks like LangChain — rely on OpenAI-compatible APIs and can’t tokenize or detokenize themselves. As mentioned <a class="autorefs autorefs-internal" title="General background on LLM serving" href="#general-llm-serving-background">earlier</a>, implementing this layer manually is complex and error-prone. Some frameworks implement custom solutions (e.g., <a href="https://github.com/volcengine/verl/blob/4da0d3d3188072772cb2ec817b3d6cf4a463821f/recipe/langgraph_agent/chat_model.py">VERL Agent Loop</a>, <a href="https://github.com/thinking-machines-lab/tinker-cookbook/blob/34a6588d7055040c259985d98e71c0140b389ba7/tinker_cookbook/renderers.py">Tinker Renderer</a>), while others leave it to users (e.g., <a href="https://novasky-ai.notion.site/skyrl-searchr1">SkyRL Search-R1</a>).</p>
+<hr />
+<p>A better solution is to use an <strong>OpenAI-compatible API that returns token IDs directly.</strong> This lets agents continue using familiar APIs while capturing token IDs via <a href="../../tutorials/traces/">tracing</a> for training. The limitation, of course, is that the serving framework must actually support this capability.</p>
+<p>When Agent-lightning was first released, we implemented an <a href="https://github.com/microsoft/agent-lightning/blob/v0.1/agentlightning/instrumentation/vllm.py">instrumented vLLM server</a> that monkey-patched vLLM’s OpenAI server to return token IDs. Since then, the Agent-lightning and vLLM teams have collaborated to add this feature directly to <a href="https://github.com/vllm-project/vllm/pull/22587">vLLM core</a>. Starting with <strong>vLLM v0.10.2</strong>, the OpenAI-compatible API includes a <a href="https://docs.vllm.ai/en/v0.10.2/serving/openai_compatible_server.html#api-reference"><code>return_token_ids</code> parameter</a>, allowing token IDs to be requested alongside chat messages. SGLang has tracked <a href="https://github.com/sgl-project/sglang/issues/2634">similar feature requests</a>, though its OpenAI-compatible layer doesn’t yet support them.</p>
+<p>In short, when using vLLM v0.10.2 or newer, <a class="autorefs autorefs-internal" title="            agentlightning.LLMProxy" href="../../reference/algorithm/#agentlightning.LLMProxy"><code>LLMProxy</code></a> automatically adds <code>return_token_ids</code> to each request so the engine includes token IDs in its response. For older vLLM versions, you still need the instrumented version (via <code>agl vllm</code> CLI command).</p>
+<p>Finally, if you only save token IDs in spans, it will have its own limitations — if you train one model using spans from another model with a different tokenizer, incompatibilities can arise. In practice, though, spans in Agent-lightning always store both chat messages and token IDs (actually the full request and response objects), allowing you to fall back to retokenization when necessary.</p>
 
 <!-- Was this page helpful? -->
 
@@ -1511,15 +1558,15 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mike"}}</script>
     
     
   
-      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
-        <script src="js/timeago.min.js"></script>
+        <script src="../../js/timeago.min.js"></script>
       
-        <script src="js/timeago_mkdocs_material.js"></script>
+        <script src="../../js/timeago_mkdocs_material.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
       
@@ -1529,11 +1576,11 @@
       
         <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
-        <script src="javascripts/charts.js"></script>
+        <script src="../../javascripts/charts.js"></script>
       
-        <script src="javascripts/move-source-file.js"></script>
+        <script src="../../javascripts/move-source-file.js"></script>
       
-        <script src="javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
     
   <script>
